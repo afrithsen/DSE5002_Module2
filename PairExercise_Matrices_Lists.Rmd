@@ -3,6 +3,8 @@ title: "DataFrames_and_Lists"
 author: "HDS"
 date: "2024-06-21"
 output: html_document
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}
@@ -185,6 +187,9 @@ hist(mtcars$Power_2_Weight)
 
 State a hypothesis about Power_2_Weight and mpg (miles per gallon).   Create
 a graph that tests the hypothesis
+```{r}
+plot(mtcars$Power_2_Weight, mtcars$mpg)
+```
 
 #Creating data frames in R
 
@@ -242,7 +247,7 @@ file.choose()
 ```{R}
 # cut and paste using Ctrl-C and Ctrl-V to assign the full path to infile
 
-infile="C:\\Users\\hdavi\\Dropbox\\Merrimack_Data_Science\\DSE5002_R+Python\\DSE5002_Module_1\\Boston_Assessment_Roll_2024.csv"
+infile="C:\\Users\\Amanda\\Documents\\R and Python Programming\\Module1_RPrerequisites\\Boston_Assessment_Roll_2024.csv"
 ```
 
 now use read.csv() to load the assessment roll into a data frame

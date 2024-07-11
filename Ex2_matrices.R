@@ -17,7 +17,7 @@ print(P)
 # Define the column and row names.
 rownames = c("row1", "row2", "row3", "row4")
 colnames = c("col1", "col2", "col3")
-
+print(P)
 # Create the matrix.
 P <- matrix(c(3:14), nrow = 4, byrow = TRUE, dimnames = list(rownames, colnames))
 
@@ -31,6 +31,7 @@ print(P[4,2])
 print(P[2,])
 
 # Access only the 3rd column.
+
 print(P[,3])
 ##############################################################################
 ###Matrix Computations
@@ -50,6 +51,7 @@ print(result)
 # Subtract the matrices
 result <- matrix1 - matrix2
 cat("Result of subtraction","\n")
+result
 ##############################################################################
 ##Multiplication and Division
 # Create two 2x3 matrices.
@@ -67,5 +69,4 @@ print(result)
 # Divide the matrices
 result <- matrix1 / matrix2
 cat("Result of division","\n")
-print(result)
 print(result)

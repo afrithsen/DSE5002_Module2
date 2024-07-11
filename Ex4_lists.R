@@ -11,3 +11,5 @@ list_data[[3]][3]
 # We can also name the elements of the list
 names(list_data) <- c("Male", "Female", "number_vector","logical", "numeric")
 print(list_data)
+
+list_data[["number_vector"]]

@@ -8,7 +8,7 @@ emp.data <- data.frame(
   salary = c(623.3,515.2,611.0,729.0,843.25), 
   
   start_date = as.Date(c("2012-01-01", "2013-09-23", "2014-11-15", "2014-05-11",
-                         "2015-03-27")),
+                         "2015-03-27"), format = "%Y-%m-%d"),
   stringsAsFactors = FALSE
 )
 # Summarize the data frame.			
@@ -22,17 +22,19 @@ str(emp.data)
 ### Creating data frames by reading a file
 
 # Read csv files (comma separated value)
-sales_csv <- read.csv("Week_2/Data/sales.csv"
+getwd()
+sales_csv <- read.csv("DSE5002_Module2/sales.csv"
                       ,stringsAsFactors=FALSE
                       )
+head(sales_csv)
 # Read tab delimited files "\t" or any other file that is delimited
-sales_tab_delim <- read.delim("Week_2/Data/sales.txt"
+sales_tab_delim <- read.delim("DSE5002_Module2/sales.txt"
                               ,stringsAsFactors=FALSE
                               ,sep = "\t"
                               )
-
+head(sales_tab_delim)
 # Read excel sheets
-sales_excel <- readxl::read_excel("Week_2/Data/sales.xlsx"
+sales_excel <- readxl::read_excel("DSE5002_Module2/sales.xlsx"
                     ,sheet = "sales"
                     )
 
@@ -59,6 +61,8 @@ cat(
   ,sep="\n\r"
 )
 
+head(sales_csv)
+head(sales_csv$Product.Number)
 ################################### Factors ##################################
 # Check whether Region is a factor & find the unique values. 
 is.factor(sales_csv$Region)
@@ -92,13 +96,24 @@ inherits(sales_csv$Order.Date
          , c("Date")
          )
 
-# Using the table in our notes, convert the character to a date obeject. 
-sales_csv$Order.Date <- as.Date(sales_csv$Order.Date
-                                ,format='%m/%d/%Y'
-                                )
+# Using the table in our notes, convert the character to a date object. 
+sales_csv$Order.Date <- as.Date(sales_csv$Order.Date, format = '%m/%d/%Y')
 
 # Check to see if our conversion worked
 inherits(sales_csv$Order.Date
          , c("Date")
          )
 str(sales_csv$Order.Date)
+
+head(sales_csv)
+
+
+
+############################## subsetting ##############
+
+sales_csv[1:10,5]
+
+first_class_df = sales_csv[sales_csv$Ship.Mode == 'First Class',]
+
+
+sales_csv[(sales_csv$Ship.Mode == 'First Class')|(sales_csv$City == 'Henderson'), ]
